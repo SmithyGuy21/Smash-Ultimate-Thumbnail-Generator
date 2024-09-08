@@ -6,7 +6,7 @@ The **Smash Ultimate Thumbnail Generator** is a web-based tool for creating cust
 ## Features
 - **Character Selection**: Choose characters from a predefined list
 - **Skin Selection**: Select different skins for each character
-- **Background and Foreground Selection**: Choose and upload custom backgrounds and foregrounds
+- **Background and Foreground Selection**: Choose and upload custom backgrounds and foregrounds of size 1280x720
 - **Custom Text**: Add and format player names, tournament names, and set types
 - **Image Download**: Download the generated thumbnail as a PNG file
 
@@ -15,7 +15,7 @@ The **Smash Ultimate Thumbnail Generator** is a web-based tool for creating cust
    - The background and foreground resources are not covered by this license and are **not allowed to be used for commercial purposes**. Do not generate images with CrossSlashStudio art. Upload different background and foreground art
 
 ## Usage
-   - Open the project in a web browser
+   - Open the project at [https://smithyguy21.github.io/Smash-Ultimate-Thumbnail-Generator/](https://smithyguy21.github.io/Smash-Ultimate-Thumbnail-Generator/)
    - Use the input fields to enter player tags, tournament name, and set type
    - Select characters and skins from the dropdown menus
    - Choose background and foreground images from the dropdown or upload your own
