@@ -1,0 +1,48 @@
+
+.search-container {
+    position: relative; /* Make the container positioned so the dropdown can be positioned absolutely */
+    width: 100%;
+}
+
+.dropdown-list {
+    display: block; /* Show dropdown by default */
+    width: 200px; /* Match the width of the search input */
+    z-index: 3; /* Ensure it appears above other elements */
+    padding: 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    background-color: #fff;
+    max-height: 200px; /* Limit the height of the dropdown */
+    overflow-y: auto; /* Add scroll if content exceeds max height */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dropdown-list li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover {
+    background-color: #f0f0f0;
+}
+
+canvas {
+    border: 10px solid #ccc;
+    justify-content: right;
+}
+
+.selectors {
+    display: flex; /* Arrange items horizontally */
+    gap: 20px; /* Add space between dropdowns */
+    align-items: center; /* Vertically center items */
+}
+
+@font-face {
+    font-family: 'Futura_Condensed_Regular';
+    src: url('Resources/Fonts/Futura_Condensed_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
