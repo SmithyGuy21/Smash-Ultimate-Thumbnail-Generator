@@ -1,23 +1,74 @@
+body {
+    font-family: sans-serif, 'Futura_Condensed_Regular';
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #003366;
+    color: #fefe5e;
+}
 
-.search-container {
-    position: relative; /* Make the container positioned so the dropdown can be positioned absolutely */
-    width: 100%;
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-container input {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.selectors {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 15px;
 }
 
 .dropdown-list {
-    display: block; /* Show dropdown by default */
-    width: 200px; /* Match the width of the search input */
-    z-index: 3; /* Ensure it appears above other elements */
-    padding: 0px;
+    display: block;
+    z-index: 3;
+    padding: 0;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 4px;
     background-color: #fff;
-    max-height: 200px; /* Limit the height of the dropdown */
-    overflow-y: auto; /* Add scroll if content exceeds max height */
-    margin: 0;
+    overflow-y: auto;    
+    margin: 5px;
     padding: 0;
     list-style: none;
+    margin-right: 25px;
+    color: #000000;
+    font-size: 24px;
 }
 
 .dropdown-list li {
@@ -29,15 +80,25 @@
     background-color: #f0f0f0;
 }
 
-canvas {
-    border: 10px solid #ccc;
-    justify-content: right;
+.upload-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.selectors {
-    display: flex; /* Arrange items horizontally */
-    gap: 20px; /* Add space between dropdowns */
-    align-items: center; /* Vertically center items */
+.upload-buttons button {
+    background-color: #28a745;
+    border: none;
+}
+
+.upload-buttons button:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    display: none;
+    margin-bottom: 20px;
 }
 
 @font-face {
@@ -45,4 +106,71 @@ canvas {
     src: url('Resources/Fonts/Futura_Condensed_Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+input[type="checkbox"] {
+    appearance: none; /* Remove default styling */
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 4px;       /* Round corners */
+    cursor: pointer;          /* Change cursor to pointer */
+    position: relative;       /* Position for custom checkmark */
+}
+
+input[type="checkbox"]:checked::after {
+    background-color: yellow;
+    content: '✓';          /* Unicode checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center checkmark */
+    color: black;          /* Checkmark color */
+    font-size: 20px;       /* Checkmark Size */
+}
+
+input[type="checkbox"]:checked {
+    background-color: yellow; /* Background color when checked */
+}
+
+input[type="text"] {
+    font-size: 24px;
+    padding: 12px;
+    width: 250px;
+    height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 5px;
+    font-family: 'Futura_Condensed_Regular';
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container {
+    position: relative;
+    margin: 10px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+#dropdown, #dropdown2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 3;
+}
+
+#skin1, #skin2 {
+    margin: 5px;
+    display: block;
+}
+
+label{
+    font-size: 24px;
 }
