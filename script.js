@@ -58,7 +58,10 @@ function redraw() {
         const img = new Image();
         img.src = `Resources/Fighters/${formattedCharacter}/render${skin1Select.value-1}.png`;
         img.onload = function () {
-            ctx.drawImage(img, 0, 0);
+            // Draw the 640-pixel wide portion of the image
+            const sourceWidth = 640; // Width of the portion to draw
+            const sourceHeight = img.height; // Height of the portion to draw
+            ctx.drawImage(img, 0, 0, sourceWidth, sourceHeight, 0, 0, sourceWidth, sourceHeight);
             drawUI();
         }
     }
@@ -69,7 +72,10 @@ function redraw() {
         img2.onload = function () {
             ctx.save();         // Save the current state
             ctx.scale(-1, 1);   // Flip horizontally
-            ctx.drawImage(img2, -canvas.width/2-img2.width, 0); // Adjust position because of the flip
+            const sourceWidth = 640; // Width of the portion to draw
+            const sourceHeight = img2.height; // Height of the portion to draw
+            // Draw the 640-pixel wide portion of img2
+            ctx.drawImage(img2, 0, 0, sourceWidth, sourceHeight, -canvas.width / 2 - sourceWidth, 0, sourceWidth, sourceHeight);
             ctx.restore();
             drawUI();
         }
