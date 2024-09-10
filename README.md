@@ -7,9 +7,10 @@ The **Smash Ultimate Thumbnail Generator** is a web-based tool for creating cust
 - **Character Selection**: Choose characters from a predefined list
 - **Skin Selection**: Select different skins for each character
 - **Background and Foreground Selection**: Choose and upload custom backgrounds and foregrounds of size 1280x720
-- **Custom Text**: Add and format player names, tournament names, and set types
+- **Custom Text**: Add and format player tags, tournament names, and set types
+- **Font Upload**: Upload a custom font to display names, tournament names, and set types
 - **Image Download**: Download the generated thumbnail as a PNG file
-- **Dynamic Naming**: Names the image based on the player names, player characters, tournament names, and set types
+- **Dynamic Naming**: Names the image based on the player tags, player characters, tournament names, and set types
 
 ## License
    - The code is licensed under the **Creative Commons Zero v1.0 Universal**. Please see the LICENSE file for more details
@@ -33,11 +34,13 @@ The **Smash Ultimate Thumbnail Generator** is a web-based tool for creating cust
   - I love CrossSlashStudios and the Slambana competitive scene. Check them out here on [YouTube](https://www.youtube.com/@crossslashstudios) and [Twitch](https://www.twitch.tv/crossslashstudios)
 
 ### Example Thumbnails
-![Example Thumbnail](Sample%20Images/%5BEPIC%20TOURNAMENT%5D%20WINNERS%20ROUND%201_%20LUIGI%20FAN%20%28Mario%29%20vs%20LUIGI%20HATER%20%28Bowser%29.png)
-![Example Thumbnail](Sample%20Images/%5BSLAMBANA-172%5D%20GRAND%20FINALS_%20SMITHY%20%28Mario%29%20vs%20DEDEDE%20%28King%20Dedede%29.png)
-![Example Thumbnail](Sample%20Images/%5BTHE%20END%20OF%20THE%20WORLD%202%5D%20GRAND%20FINALS%20%28BO5%29_%20SMITHY%20%28Mario%29%20vs%20GOD%20%28Dark%20Samus%29.png)
+![Example Thumbnail](Sample%20Images/%5BEpic%20Tournament%5D%20Winners%20Round%201_%20Luigi%20Fan%20%28Luigi%29%20vs%20LUIGI%20HATER%20%28Bowser%29.png)
+![Example Thumbnail 2](Sample%20Images/%5BSMASH%20TOURNAMENT%5D%20LOSERS%20ROUND%201_%20LEVIATAN%20%28Robin%29%20vs%20POKEMON%20FAN%20%28Pikachu%29.png)
+![Example Thumbnail 3](Sample%20Images/%5BTHE%20END%20OF%20THE%20WORLD%202%5D%20GRAND%20FINALS%20%28BO5%29_%20SMITHY%20%28Mario%29%20vs%20GOD%20%28Dark%20Samus%29.png)
+![Example Thumbnail 4](Sample%20Images/%5BSLAMBANA%20%231%5D%20GRAND%20FINALS_%20SMITHY%20%28Mario%29%20vs%20OTHER%20GUY%20%5BL%5D%20%28Samus%29.png)
+
 ### Webpage
-![Default State with Slambana](Sample%20Images/Default%20State%20with%20Slambana.png)
+![Default State with Slambana](Sample%20Images/Default%20State.png)
 ![ZoomedOut](Sample%20Images/ZoomedOut.png)
 
 Thank you for using the Smash Ultimate Thumbnail Generator!

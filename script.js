@@ -8,6 +8,7 @@ const dropdown2 = document.getElementById('dropdown2');
 const upload = document.getElementById('upload');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+loadedFontName = "Futura_Condensed_Regular"
 const textPlayer1Input = document.getElementById('textPlayer1');
 const textPlayer2Input = document.getElementById('textPlayer2');
 const tournamentInput = document.getElementById('tournament');
@@ -22,6 +23,8 @@ const uploadBackgroundButton = document.getElementById('uploadBackgroundButton')
 const uploadBackgroundInput = document.getElementById('uploadBackgroundInput');
 const uploadForegroundButton = document.getElementById('uploadForegroundButton');
 const uploadForegroundInput = document.getElementById('uploadForegroundInput');
+const uploadFontButton = document.getElementById('uploadFontButton')
+const uploadFontInput = document.getElementById('uploadFontInput')
 const errorMessage = document.getElementById('errorMessage');
 
 function drawUI() {
@@ -37,14 +40,14 @@ function drawUI() {
         setTypeText = setTypeText.toUpperCase();
     }
     // Change font
-    ctx.font = "64px Futura_Condensed_Regular";
+    ctx.font = `64px ${loadedFontName}`;
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.fillText(player1Text, canvas.width * 7 / 32, canvas.height*0.1); // Player 1 text on the left
     ctx.fillText(player2Text, (25 * canvas.width) / 32, canvas.height*0.1); // Player 2 text on the right
     ctx.fillText(tournamentText, canvas.width / 2, canvas.height*0.9);
     // Change font 2
-    ctx.font = "48px Futura_Condensed_Regular";
+    ctx.font = `48px ${loadedFontName}`;
     ctx.fillStyle = "grey";
     ctx.fillText(setTypeText, canvas.width / 2, canvas.height*0.975);
 
@@ -138,7 +141,6 @@ foregroundSelect.addEventListener('change', (event) => {
     redraw();
 });
 
-// Handle file upload and thumbnail generation
 const background = new Image();        
 background.src = `Resources/Backgrounds/${backgroundSelect.value}/bg.png`; // Update this path to match your folder structure
 const ui = new Image();
@@ -221,6 +223,35 @@ function handleImageUpload(input, imageElement, type) {
 // Bind the buttons to the respective file inputs
 bindButtonToInput(uploadBackgroundButton, uploadBackgroundInput);
 bindButtonToInput(uploadForegroundButton, uploadForegroundInput);
+bindButtonToInput(uploadFontButton, uploadFontInput);
 // Handle the image upload when a file is selected
 handleImageUpload(uploadBackgroundInput, background, 'background');
 handleImageUpload(uploadForegroundInput, ui, 'foreground');
+
+uploadFontInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        // Handle font upload logic here
+        console.log(`Uploaded font file: ${file.name}`);
+        const reader = new FileReader();
+                reader.onload = function(e) {
+                    try{
+                        const fontFace = new FontFace('UploadedFont', e.target.result);
+                        fontFace.load().then(function(loadedFont) {
+                            document.fonts.add(loadedFont);
+                            loadedFontName = 'UploadedFont'; // Save the name of the loaded font
+                            redraw();
+                            errorMessage.style.display = 'none'; // Hide any previous error
+                        }).catch(function(err) {
+                            errorMessage.textContent = `Failed to load font. Please upload a .ttf, .otf, .woff, or .woff2 file`;
+                            errorMessage.style.display = 'block';
+                        });
+                    } catch(err) {
+                        errorMessage.textContent = `Error reading font file. Please upload a .ttf, .otf, .woff, or .woff2 file`;
+                        errorMessage.style.display = 'block';
+                    }
+                };
+                reader.readAsArrayBuffer(file);
+    }
+    
+});
