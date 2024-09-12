@@ -72,7 +72,6 @@ button:hover {
 }
 
 .dropdown-list li {
-    padding: 8px;
     cursor: pointer;
 }
 
@@ -173,4 +172,17 @@ input[type="text"] {
 
 label{
     font-size: 24px;
+}
+
+.github-link {
+    position: absolute;
+    top: 10px;    /* Adjust the position as needed */
+    right: 10px;
+    z-index: 10;  /* Ensure the link is always visible */
+}
+
+.github-link img {
+    width: 64px;  /* Adjust size as needed */
+    height: 64px;
+    cursor: pointer;
 }

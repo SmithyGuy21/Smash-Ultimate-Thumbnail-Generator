@@ -33,6 +33,18 @@ function drawUI() {
     player2Text = textPlayer2Input.value;
     tournamentText = tournamentInput.value;
     setTypeText = setTypeInput.value;
+    if (player1Text=="") {
+        player1Text="Player 1"
+    }
+    if (player2Text=="") {
+        player2Text="Player 2"
+    }
+    if (tournamentText=="") {
+        tournamentText="Tournament Name"
+    }
+    if (setTypeText=="") {
+        setTypeText="Set Type"
+    }
     if (capsLockBool.checked) {
         player1Text = player1Text.toUpperCase();
         player2Text = player2Text.toUpperCase();
@@ -85,6 +97,27 @@ function redraw() {
     }            
 }
 
+function checkIfImageExists(imageUrl, callback) {
+    console.log("imageUrl:", imageUrl);
+    console.log("HEAD");
+    fetch(imageUrl, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                console.log("true");
+                callback(true); // Image exists
+            } else {
+                console.log("false");
+                console.log("response.ok:", response.ok);
+                callback(false); // Image does not exist
+            }
+        })
+        .catch(error => {
+            console.log("?");
+            console.error('Error checking image/character existence:', error); // Optional logging
+            callback(false); // An error occurred, image does not exist
+        });
+}
+
 function setupDropdownForInput(inputElement, dropdownElement) {
     inputElement.addEventListener('input', () => {
         const query = inputElement.value.toLowerCase();
@@ -103,6 +136,18 @@ function setupDropdownForInput(inputElement, dropdownElement) {
         populateDropdown(inputElement, dropdownElement, filteredCharacters);
         dropdownElement.style.display = 'block'; // Show the dropdown when input is focused
     });
+    // inputElement.addEventListener('blur', () => {
+    //     formattedCharacter = inputElement.value.replace(/\s+/g, '').replace(/\./g, '').replace(/\//g, '').toLowerCase();
+    //     checkIfImageExists(`Resources/Fighters/${formattedCharacter}/render${0}.png`, function(exists) {
+    //         if (!exists) {
+    //             console.log("false");
+    //             // inputElement.value = ''; // Clear the input when not focused and not a character
+    //         }
+    //         redraw();
+    //         // dropdownElement.style.display = 'none';
+    //         console.log("done");
+    //     });
+    // });
 }
 setupDropdownForInput(searchInput, dropdown);
 setupDropdownForInput(searchInput2, dropdown2);
@@ -255,3 +300,7 @@ uploadFontInput.addEventListener('change', function(event) {
     }
     
 });
+
+window.onload = function() {
+    redraw();
+};
